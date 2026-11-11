@@ -16,4 +16,4 @@ Then attach the custom domain `demandremigration.com` to the worker `demandremig
 - Build command: `npm run build`
 - Deploy command: `npx wrangler deploy`
 
-`www.demandremigration.com` and `http` on the apex redirect to `https://demandremigration.com/`. workers.dev is left alone.
+`www.demandremigration.com` and `http` on the apex redirect to `https://demandremigration.com/`. `/index`, `/index/`, and `/index.html` also 301 to `/` so Cloudflare Assets cannot soft-serve a duplicate homepage (Search Console: “Duplicate without user-selected canonical”). HTML responses also send a `Link: rel=canonical` header. workers.dev previews are left alone for host redirects.
